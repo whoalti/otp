@@ -1,0 +1,103 @@
+@use "sass:color";
+$base-background-color: #242424;
+$base-background-light-color: #383737;
+$accent-color: #ffcc00;
+$text-color: #ffffff;
+$info-color: #aaaaaa;
+$error-color: #ff4d4f;
+
+.otp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: $base-background-color;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.otp__header {
+  font-size: 2rem;
+  color: $text-color;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.otp__info {
+  font-size: 1rem;
+  color: $info-color;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.otp__cells {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  gap: 10px;
+  padding: 10px;
+  background-color: $base-background-light-color;
+  border-radius: 8px;
+  cursor: text;
+}
+
+.otp__cell-wrapper {
+  width: 45px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.otp__cell {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #444;
+  border-radius: 4px;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 60px;
+  background-color: #1a1a1a;
+  color: $text-color;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.otp__cell.active {
+  border-color: $accent-color;
+  box-shadow: 0 0 5px $accent-color;
+}
+
+.otp__hidden-input {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.otp__submit-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: $accent-color;
+  color: $text-color;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: color.adjust($accent-color, $lightness: 15%)
+  }
+}
+
+.otp__error {
+  color: $error-color;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+
